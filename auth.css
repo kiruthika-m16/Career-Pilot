@@ -1,0 +1,163 @@
+/* ============================================================
+   CareerPilot — Authentication page styles
+   ============================================================ */
+
+.auth-body {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.auth-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  min-height: 100vh;
+}
+
+/* ---------------- Left branding panel ---------------- */
+.auth-brand {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 56px 60px;
+  color: #f8fafc;
+  background: linear-gradient(140deg, #0b1a3a 0%, #12306e 45%, #0e7490 100%);
+}
+
+.auth-brand .blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  animation: float 12s ease-in-out infinite;
+}
+.blob-1 { width: 340px; height: 340px; background: #3b82f6; top: -80px; right: -60px; }
+.blob-2 { width: 300px; height: 300px; background: #14b8a6; bottom: -90px; left: -70px; animation-delay: -5s; }
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(18px, -22px) scale(1.08); }
+}
+
+.auth-brand-inner { position: relative; z-index: 1; max-width: 520px; }
+
+.logo { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 44px; }
+.logo-mark {
+  width: 44px; height: 44px; border-radius: 13px;
+  display: grid; place-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  font-size: 1.15rem;
+}
+.logo-text { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.03em; }
+.logo-text span { color: #7dd3fc; }
+
+.brand-title { font-size: clamp(2rem, 3.4vw, 3rem); margin-bottom: 16px; }
+.brand-sub { font-size: 1.05rem; color: rgba(226, 232, 240, 0.85); max-width: 440px; }
+
+.brand-features { margin: 34px 0 40px; display: grid; gap: 14px; }
+.brand-features li {
+  display: flex; align-items: center; gap: 13px;
+  font-size: 0.95rem; color: rgba(241, 245, 249, 0.92);
+}
+.brand-features i {
+  width: 34px; height: 34px; flex: none;
+  display: grid; place-items: center; border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 0.85rem;
+}
+
+.brand-stats {
+  display: flex; gap: 14px; flex-wrap: wrap;
+}
+.brand-stats > div {
+  flex: 1; min-width: 110px;
+  padding: 14px 16px; border-radius: 16px;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+}
+.brand-stats strong { display: block; font-size: 1.45rem; font-weight: 800; }
+.brand-stats span { font-size: 0.78rem; color: rgba(226, 232, 240, 0.8); }
+
+/* ---------------- Right form panel ---------------- */
+.auth-panel {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 48px 40px;
+  background: var(--bg);
+}
+
+.auth-card {
+  width: 100%; max-width: 448px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  padding: 30px;
+}
+
+/* Tabs */
+.auth-tabs {
+  position: relative;
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--card-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 5px; margin-bottom: 26px;
+}
+.auth-tab {
+  position: relative; z-index: 1;
+  padding: 10px; border: none; background: none;
+  font: inherit; font-weight: 600; font-size: 0.92rem;
+  color: var(--muted); cursor: pointer;
+  border-radius: 10px; transition: color var(--transition);
+}
+.auth-tab.active { color: #fff; }
+.auth-tab-indicator {
+  position: absolute; top: 5px; left: 5px;
+  width: calc(50% - 5px); height: calc(100% - 10px);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 10px;
+  transition: transform 260ms cubic-bezier(.4,0,.2,1);
+}
+.auth-tabs.register-active .auth-tab-indicator { transform: translateX(100%); }
+
+.auth-form { animation: fadeUp 300ms ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.form-head { margin-bottom: 22px; }
+.form-head h2 { font-size: 1.5rem; }
+.form-head p { font-size: 0.9rem; color: var(--muted); }
+
+.form-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin: 4px 0 20px;
+  font-size: 0.86rem;
+}
+
+/* Password strength */
+.strength { margin: -6px 0 16px; }
+.strength-bar {
+  height: 6px; border-radius: 999px;
+  background: var(--border); overflow: hidden;
+}
+.strength-bar span {
+  display: block; height: 100%; width: 0;
+  border-radius: 999px; background: var(--danger);
+  transition: width 300ms ease, background 300ms ease;
+}
+.strength small { display: block; margin-top: 6px; font-size: 0.76rem; color: var(--muted); font-weight: 600; }
+
+.auth-foot {
+  margin-top: 18px; text-align: center;
+  font-size: 0.87rem; color: var(--muted);
+}
+
+.auth-note {
+  margin-top: 22px; max-width: 448px;
+  font-size: 0.78rem; color: var(--muted); text-align: center;
+}
+.auth-note i { color: var(--primary); margin-right: 4px; }

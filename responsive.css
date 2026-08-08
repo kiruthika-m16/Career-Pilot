@@ -1,0 +1,83 @@
+/* ============================================================
+   CareerPilot — Responsive rules (shared across all pages)
+   Breakpoints: 1200 / 1024 / 768 / 480
+   ============================================================ */
+
+/* -------- Laptop -------- */
+@media (max-width: 1200px) {
+  .auth-brand { padding: 48px 44px; }
+  .brand-features { margin: 28px 0 30px; }
+}
+
+/* -------- Tablet: stack the auth layout -------- */
+@media (max-width: 1024px) {
+  .auth-layout { grid-template-columns: 1fr; }
+
+  .auth-brand {
+    padding: 44px 32px;
+    min-height: auto;
+  }
+  .auth-brand-inner { max-width: 100%; }
+  .logo { margin-bottom: 26px; }
+  .brand-title { font-size: 2rem; }
+  .brand-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 24px 0 26px;
+  }
+  .auth-panel { padding: 36px 24px 56px; }
+}
+
+/* -------- Mobile -------- */
+@media (max-width: 768px) {
+  .brand-features { grid-template-columns: 1fr; }
+  .brand-features li:nth-child(n + 3) { display: none; }
+  .brand-stats > div { min-width: 90px; padding: 12px; }
+  .brand-stats strong { font-size: 1.2rem; }
+
+  .auth-card { padding: 22px; border-radius: var(--radius-lg); }
+  .grid-2 { grid-template-columns: 1fr; }
+
+  .toast-stack { top: auto; bottom: 16px; left: 16px; right: 16px; max-width: none; }
+
+  .modal { border-radius: var(--radius-lg); }
+  .modal-foot { flex-direction: column-reverse; }
+  .modal-foot .btn { width: 100%; }
+}
+
+/* -------- Small phones -------- */
+@media (max-width: 480px) {
+  .auth-brand { padding: 34px 20px; }
+  .brand-title { font-size: 1.65rem; }
+  .brand-sub { font-size: 0.94rem; }
+  .brand-stats { gap: 10px; }
+
+  .auth-panel { padding: 26px 16px 44px; }
+  .auth-card { padding: 18px; }
+  .form-head h2 { font-size: 1.28rem; }
+
+  .form-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .theme-fab { width: 40px; height: 40px; top: 14px; right: 14px; }
+}
+
+/* -------- Print (used by the resume builder in Phase 7) -------- */
+@media print {
+  .theme-fab, .toast-stack, .modal-overlay { display: none !important; }
+  body { background: #fff; color: #000; }
+}
+
+@media print {
+  .sidebar, .topbar, .page-head, .card, .toast-stack, .theme-fab { display: none !important; }
+  .resume-preview { box-shadow: none; border: none; display: block !important; }
+  .resume-layout { display: block; }
+  .page { padding: 0; }
+}
+
+@media (max-width: 992px) {
+  .sidebar { position: fixed; left: 0; top: 0; transform: translateX(-100%); transition: transform var(--transition); }
+  .sidebar.open { transform: none; }
+  .sidebar.collapsed { width: 258px; }
+  .split, .resume-layout { grid-template-columns: 1fr; }
+  .kanban { grid-template-columns: repeat(5, 230px); }
+}
+@media (min-width: 993px) { #mobileMenu { display: none; } }
+@media (max-width: 640px) { .page { padding: 16px; } .top-user .who { display: none; } .dropdown { right: 8px; width: calc(100% - 16px); } }
