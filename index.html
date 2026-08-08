@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerPilot — Smart Career &amp; Job Management Platform</title>
+  <meta name="description" content="CareerPilot helps students discover jobs, build resumes and track every application in one place." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="auth-body">
+
+  <button class="theme-fab" id="themeToggle" title="Toggle theme" aria-label="Toggle light and dark theme">
+    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+  </button>
+
+  <main class="auth-layout">
+
+    <!-- ============ LEFT BRANDING PANEL ============ -->
+    <section class="auth-brand" aria-label="About CareerPilot">
+      <div class="blob blob-1" aria-hidden="true"></div>
+      <div class="blob blob-2" aria-hidden="true"></div>
+
+      <div class="auth-brand-inner">
+        <div class="logo">
+          <span class="logo-mark"><i class="fa-solid fa-compass" aria-hidden="true"></i></span>
+          <span class="logo-text">Career<span>Pilot</span></span>
+        </div>
+
+        <h1 class="brand-title">Your career journey, organized.</h1>
+        <p class="brand-sub">
+          Discover opportunities, build your resume, and track every step toward your dream career.
+        </p>
+
+        <ul class="brand-features">
+          <li><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i> Smart job search with real filters</li>
+          <li><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Kanban application tracker</li>
+          <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i> Resume builder with strength score</li>
+          <li><i class="fa-solid fa-chart-pie" aria-hidden="true"></i> Career analytics dashboard</li>
+        </ul>
+
+        <div class="brand-stats">
+          <div><strong>20+</strong><span>Curated jobs</span></div>
+          <div><strong>13</strong><span>Modules</span></div>
+          <div><strong>100%</strong><span>Offline ready</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RIGHT FORM PANEL ============ -->
+    <section class="auth-panel">
+      <div class="auth-card">
+
+        <div class="auth-tabs" role="tablist" aria-label="Authentication mode">
+          <button class="auth-tab active" id="tabLogin" role="tab" aria-selected="true" aria-controls="loginForm" type="button">Login</button>
+          <button class="auth-tab" id="tabRegister" role="tab" aria-selected="false" aria-controls="registerForm" type="button">Register</button>
+          <span class="auth-tab-indicator" aria-hidden="true"></span>
+        </div>
+
+        <!-- ---------- LOGIN ---------- -->
+        <form class="auth-form" id="loginForm" novalidate>
+          <header class="form-head">
+            <h2>Welcome back</h2>
+            <p>Sign in to continue managing your career.</p>
+          </header>
+
+          <div class="field">
+            <label for="loginEmail">Email address</label>
+            <div class="input-wrap">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              <input type="email" id="loginEmail" name="email" placeholder="you@example.com" autocomplete="email" />
+            </div>
+            <small class="error-msg" id="loginEmailError"></small>
+          </div>
+
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-lock" aria-hidden="true"></i>
+              <input type="password" id="loginPassword" name="password" placeholder="Enter your password" autocomplete="current-password" />
+              <button type="button" class="eye-btn" data-toggle-password="loginPassword" title="Show password" aria-label="Show password">
+                <i class="fa-regular fa-eye" aria-hidden="true"></i>
+              </button>
+            </div>
+            <small class="error-msg" id="loginPasswordError"></small>
+          </div>
+
+          <div class="form-row">
+            <label class="checkbox">
+              <input type="checkbox" id="rememberMe" />
+              <span>Remember me</span>
+            </label>
+            <button type="button" class="link-btn" id="forgotPassword">Forgot password?</button>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Login
+          </button>
+
+          <div class="divider"><span>or</span></div>
+
+          <button type="button" class="btn btn-ghost btn-block" id="demoLogin">
+            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Try Demo Account
+          </button>
+
+          <p class="auth-foot">New to CareerPilot? <button type="button" class="link-btn" data-goto="register">Create an account</button></p>
+        </form>
+
+        <!-- ---------- REGISTER ---------- -->
+        <form class="auth-form hidden" id="registerForm" novalidate>
+          <header class="form-head">
+            <h2>Create your account</h2>
+            <p>It takes less than a minute to get started.</p>
+          </header>
+
+          <div class="field">
+            <label for="regName">Full name</label>
+            <div class="input-wrap">
+              <i class="fa-regular fa-user" aria-hidden="true"></i>
+              <input type="text" id="regName" placeholder="e.g. Aravind Kumar" autocomplete="name" />
+            </div>
+            <small class="error-msg" id="regNameError"></small>
+          </div>
+
+          <div class="field">
+            <label for="regEmail">Email address</label>
+            <div class="input-wrap">
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+              <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="email" />
+            </div>
+            <small class="error-msg" id="regEmailError"></small>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="regPassword">Password</label>
+              <div class="input-wrap">
+                <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                <input type="password" id="regPassword" placeholder="Min. 6 characters" autocomplete="new-password" />
+                <button type="button" class="eye-btn" data-toggle-password="regPassword" title="Show password" aria-label="Show password">
+                  <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                </button>
+              </div>
+              <small class="error-msg" id="regPasswordError"></small>
+            </div>
+
+            <div class="field">
+              <label for="regConfirm">Confirm password</label>
+              <div class="input-wrap">
+                <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                <input type="password" id="regConfirm" placeholder="Re-enter password" autocomplete="new-password" />
+                <button type="button" class="eye-btn" data-toggle-password="regConfirm" title="Show password" aria-label="Show password">
+                  <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                </button>
+              </div>
+              <small class="error-msg" id="regConfirmError"></small>
+            </div>
+          </div>
+
+          <div class="strength" id="strengthBox" aria-live="polite">
+            <div class="strength-bar"><span id="strengthFill"></span></div>
+            <small id="strengthLabel">Password strength: —</small>
+          </div>
+
+          <div class="field">
+            <label for="regInterest">Career interest</label>
+            <div class="input-wrap">
+              <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+              <select id="regInterest">
+                <option value="">Select your area of interest</option>
+                <option>Software Development</option>
+                <option>Data Science</option>
+                <option>Data Analytics</option>
+                <option>UI/UX</option>
+                <option>Marketing</option>
+                <option>Finance</option>
+                <option>Human Resources</option>
+                <option>Cybersecurity</option>
+              </select>
+            </div>
+            <small class="error-msg" id="regInterestError"></small>
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" id="regTerms" />
+            <span>I agree to the Terms of Service and Privacy Policy</span>
+          </label>
+          <small class="error-msg" id="regTermsError"></small>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Create account
+          </button>
+
+          <p class="auth-foot">Already registered? <button type="button" class="link-btn" data-goto="login">Login instead</button></p>
+        </form>
+
+      </div>
+
+      <p class="auth-note">
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        Academic prototype — authentication is simulated in the browser using LocalStorage.
+      </p>
+    </section>
+  </main>
+
+  <div class="toast-stack" id="toastStack" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
